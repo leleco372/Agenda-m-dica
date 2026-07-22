@@ -14,20 +14,21 @@
 
         <h2>Faça seu Login</h2>
         <p class="sub">Informe suas credenciais para acessar o sistema.</p>
+
         {% if error %}
-            <p class="error">{{ error }}</p>
+        <p class="erro">{{ error }}</p>
         {% endif %}
 
         <form action="/login" method="POST">
 
             <div class="input-box">
                 <label for="usuario">Usuário ou E-mail</label>
-                <input type="text" id="usuario" placeholder="Digite seu usuário ou e-mail">
+                <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário ou e-mail">
             </div>
 
             <div class="input-box">
                 <label for="senha">Senha</label>
-                <input type="password" id="senha" placeholder="Digite sua senha">
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
             </div>
 
             <div class="btn-area">

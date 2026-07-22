@@ -27,6 +27,15 @@ body{
     font-size: 14px;
     margin: 10px 0 25px;
 }
+.erro{
+    color: #b00020;
+    background: #fdecea;
+    border: 1px solid #f5c2c2;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    margin: 0 0 20px;
+}
 
 .input-box{
     text-align: left;
