@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="../static/login.css">
+</head>
+
+<body>
+
+    <div class="login-card">
+
+        <h2>Faça seu Login</h2>
+        <p class="sub">Informe suas credenciais para acessar o sistema.</p>
+
+        <form action="/login" method="POST">
+
+            <div class="input-box">
+                <label for="usuario">Usuário ou E-mail</label>
+                <input type="text" id="usuario" placeholder="Digite seu usuário ou e-mail">
+            </div>
+
+            <div class="input-box">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="Digite sua senha">
+            </div>
+
+            <div class="btn-area">
+                <button type="submit" class="btn">Entrar</button>
+            </div>
+
+        </form>
+
+        <p class="senha">
+            <a href="#">Esqueceu sua senha?</a>
+        </p>
+
+    </div>
+
+</body>
+</html>

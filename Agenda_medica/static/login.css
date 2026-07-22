@@ -1,0 +1,90 @@
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg,#05245e,#40a2cf);
+}
+
+.login-card{
+    width: 420px;
+    background: #e9e9e9;
+    padding: 40px 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+.login-card h2{
+    margin: 0;
+    font-size: 26px;
+}
+
+.sub{
+    color: #666;
+    font-size: 14px;
+    margin: 10px 0 25px;
+}
+
+.input-box{
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.input-box label{
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 14px;
+}
+
+.input-box input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
+    transition: .2s;
+}
+
+.input-box input:focus{
+    border-color: #1a58dd;
+}
+
+.btn-area{
+    margin-top: 20px;
+}
+
+.btn{
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background: #0e0864;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn:hover{
+    background: #102b77;
+}
+
+.senha{
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.senha a{
+    color: #0f1785;
+    text-decoration: none;
+}
+
+.senha a:hover{
+    text-decoration: underline;
+}
