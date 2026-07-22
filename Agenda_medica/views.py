@@ -13,24 +13,34 @@ def login():
     username = request.form["usuario"]
     password = request.form["senha"]
 
-    conexao = sqlite3.connect("banco.db")
-    cursor = conexao.cursor()
+    try:
+        conexao = sqlite3.connect("banco.db")
+        cursor = conexao.cursor()
 
-    cursor.execute(
-    "SELECT * FROM usuarios WHERE (email = ? OR nome = ?) AND senha = ?",
-    (username, username, password))
+        cursor.execute(
+            "SELECT * FROM usuarios WHERE (email = ? OR nome = ?) AND senha = ?",
+            (username, username, password)
+        )
 
-    usuario = cursor.fetchone()
+        usuario = cursor.fetchone()
 
-    conexao.close()
+        conexao.close()
+
+    except sqlite3.Error as e:
+        app.logger.error(f"Erro de banco de dados no login: {e}")
+        return render_template(
+            "login.html",
+            error="Não foi possível acessar o sistema no momento. Tente novamente mais tarde."
+        ), 500
 
     if usuario:
-        return redirect(url_for("/agenda"))
+        return redirect(url_for("agenda"))
     else:
         return render_template(
             "login.html",
             error="Usuário ou senha inválidos."
         )
-    @app.route("/agenda")
-    def agenda():
-        return render_template("agenda.html")
+
+@app.route("/agenda")
+def agenda():
+    return render_template("agenda.html")
