@@ -17,18 +17,20 @@ def login():
     cursor = conexao.cursor()
 
     cursor.execute(
-        "SELECT * FROM usuarios WHERE usuario = ? AND senha = ?",
-        (username, password)
-    )
+    "SELECT * FROM usuarios WHERE (email = ? OR nome = ?) AND senha = ?",
+    (username, username, password))
 
     usuario = cursor.fetchone()
 
     conexao.close()
 
     if usuario:
-        return redirect(url_for("agenda"))
+        return redirect(url_for("/agenda"))
     else:
         return render_template(
             "login.html",
             error="Usuário ou senha inválidos."
         )
+    @app.route("/agenda")
+    def agenda():
+        return render_template("agenda.html")

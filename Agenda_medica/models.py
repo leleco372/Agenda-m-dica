@@ -9,7 +9,11 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS usuarios (
     email TEXT UNIQUE NOT NULL,
     senha TEXT NOT NULL
 )""")
-cursor.execute("""
-INSERT INTO usuarios (nome, email, senha) VALUES ('Leandro', 'leandro@example.com', '123456')
-""")
+
+cursor.execute("SELECT 1 FROM usuarios WHERE email = ?", ('leandro@example.com',))
+if cursor.fetchone() is None:
+    cursor.execute(
+        "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)",
+        ('Leandro', 'leandro@example.com', '123456')
+    )
 conexao.commit()

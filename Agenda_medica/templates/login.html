@@ -14,6 +14,9 @@
 
         <h2>Faça seu Login</h2>
         <p class="sub">Informe suas credenciais para acessar o sistema.</p>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
 
         <form action="/login" method="POST">
 
