@@ -1,11 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Agenda Médica</title>
+
+    <link rel="stylesheet" href="../static/agenda.css">
+    <link href="https://unpkg.com/tabulator-tables@6.5.0/dist/css/tabulator.min.css" rel="stylesheet">
+
+   
+    <script src="https://unpkg.com/tabulator-tables@6.5.0/dist/js/tabulator.min.js"></script>
+
+
 </head>
 <body>
-    
+
+<h1>Agenda Médica</h1>
+
+<div id="main">
+
+    <div id="conteudo">
+
+        <div class="pesquisa">
+
+            <select id="campoPesquisa">
+                <option value="paciente">Paciente</option>
+                <option value="cpf">CPF</option>
+                <option value="medico">Médico</option>
+            </select>
+
+            <input
+                type="text"
+                id="valorPesquisa"
+                placeholder="Digite para pesquisar...">
+
+        </div>
+
+        <div id="tabela"></div>
+
+    </div>
+
+</div>
+
+<script>
+
+var tabledata = [
+
+{
+    id:1,
+    data:"22/07/2026",
+    horario:"08:00",
+    paciente:"João Silva",
+    cpf:"123.456.789-00",
+    medico:"Dr. Carlos",
+    especialidade:"Cardiologia",
+    convenio:"Unimed",
+    status:"Confirmado"
+},
+
+{
+    id:2,
+    data:"22/07/2026",
+    horario:"09:00",
+    paciente:"Maria Souza",
+    cpf:"987.654.321-00",
+    medico:"Dra. Ana",
+    especialidade:"Dermatologia",
+    convenio:"Bradesco Saúde",
+    status:"Pendente"
+},
+
+{
+    id:3,
+    data:"22/07/2026",
+    horario:"10:00",
+    paciente:"Pedro Oliveira",
+    cpf:"456.789.123-00",
+    medico:"Dr. Roberto",
+    especialidade:"Ortopedia",
+    convenio:"Amil",
+    status:"Cancelado"
+},
+
+{
+    id:4,
+    data:"22/07/2026",
+    horario:"11:00",
+    paciente:"Ana Paula",
+    cpf:"321.654.987-00",
+    medico:"Dra. Fernanda",
+    especialidade:"Ginecologia",
+    convenio:"SulAmérica",
+    status:"Confirmado"
+},
+
+{
+    id:5,
+    data:"22/07/2026",
+    horario:"12:00",
+    paciente:"Carlos Eduardo",
+    cpf:"654.321.987-00",
+    medico:"Dr. Felipe",
+    especialidade:"Neurologia",
+    convenio:"Hapvida",
+    status:"Pendente"
+}
+
+];
+
+var table = new Tabulator("#tabela",{
+
+    data:tabledata,
+
+    layout:"fitColumns",
+
+    columns:[
+        {title:"Data", field:"data"},
+        {title:"Horário", field:"horario"},
+        {title:"Paciente", field:"paciente"},
+        {title:"CPF", field:"cpf"},
+        {title:"Médico", field:"medico"},
+        {title:"Especialidade", field:"especialidade"},
+        {title:"Convênio", field:"convenio"},
+        {title:"Status", field:"status"}
+    ]
+
+});
+
+document.getElementById("valorPesquisa").addEventListener("keyup", function(){
+
+    var valor = this.value;
+
+    var campo = document.getElementById("campoPesquisa").value;
+
+    if(valor == ""){
+
+        table.clearFilter();
+
+    }else{
+
+        table.setFilter(campo, "like", valor);
+
+    }
+
+});
+
+</script>
+
 </body>
 </html>

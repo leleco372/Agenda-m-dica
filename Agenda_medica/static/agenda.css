@@ -1,0 +1,43 @@
+ body {
+     margin: 0;
+     padding: 20px;
+     font-family: Arial, Helvetica, sans-serif;
+     background: #f4f4f4;
+ }
+
+ h1 {
+     text-align: center;
+     margin-bottom: 30px;
+ }
+
+ #main {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+ }
+
+ #conteudo {
+     width: 90%;
+ }
+
+ .pesquisa {
+     display: flex;
+     gap: 10px;
+     margin-bottom: 20px;
+ }
+
+ .pesquisa select,
+ .pesquisa input {
+     padding: 10px;
+     font-size: 15px;
+     border-radius: 5px;
+     border: 1px solid #ccc;
+ }
+
+ .pesquisa input {
+     flex: 1;
+ }
+
+ #tabela {
+     margin-top: 10px;
+ }
